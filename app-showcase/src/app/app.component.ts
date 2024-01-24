@@ -7,7 +7,7 @@ import { ScreenshotService, FireVideoComponent } from '../../../fire-video/src/p
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { JetStreamWsService } from '@his-base/jetstream-ws';
 import { HttpClient } from '@angular/common/http';
-import { MedRecordwithAttachment } from './MedRecordwithAttachment';
+import { MedRecordwithAttachment } from './med-record-with-attachment';
 import { Observable } from 'rxjs';
 import { Attachment } from '@his-base/datatypes/dist/';
 

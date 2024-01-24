@@ -1,6 +1,6 @@
 import { Coding, IndexObject, Attachment } from '@his-base/datatypes';
 /** 文件名稱：MedRecord (Medical Record)
- ** 文件說明：就醫紀錄檔
+ ** 文件說明：就醫紀錄檔, ！！！此viewModel已被孫博駁回，請勿使用！！!
  ** 編訂人員：吳祥銘
  ** 校閱人員：孫培然
  ** 設計日期：2023.12.29

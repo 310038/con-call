@@ -9,4 +9,4 @@ export * from './lib/connection.service';
 export * from './lib/screenshot.service';
 export * from './lib/show';
 export * from './lib/sdp.interface';
-export * from './lib/ice-server';
+export * from './lib/ice-server'
