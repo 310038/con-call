@@ -1,0 +1,112 @@
+<!-- eslint-disable @angular-eslint/template/alt-text -->
+<div class="container">
+  <div class="top">
+    <div class="leftSide">
+      <div *ngIf="!remoteStream" class="material-symbols-outlined contactsIcon">
+        {{contactsIcon}}
+      </div>
+      <div *ngIf="!remoteStream" class="loading">
+        <span>連線中</span>
+        <span class="dot-1">.</span>
+        <span class="dot-2">.</span>
+        <span class="dot-3">.</span>
+      </div>
+      <video *ngIf="remoteStream" class="remoteVideo" #remoteVideo id="remoteVideo" [srcObject]="remoteStream" autoplay
+        playsinline></video>
+    </div>
+
+    <div class="rightSide">
+
+      <div class="localVideo">
+        <video #localVideo id="localVideo" [srcObject]="localStream" muted autoplay playsinline></video>
+      </div>
+
+      <div class="galleria">
+        <p-galleria [value]="this.screenshotService.imageUrlSubject.value"
+          [responsiveOptions]="galleriaResponsiveOptions" [containerStyle]="{ 'margin':'auto'}" [numVisible]="3"
+          [circular]="true">
+
+          <ng-template pTemplate="item" let-imagePath>
+            <ng-container *ngIf="imagePath !== ''; else emptyItem">
+              <img class="item" *ngIf="imagePath !== ''" [src]="imagePath" style="display: block;" />
+            </ng-container>
+
+            <ng-template #emptyItem>
+              <div class="empty-galleria-item">
+                <i class="pi pi-image"></i>
+              </div>
+            </ng-template>
+          </ng-template>
+
+          <ng-template pTemplate="thumbnail" let-imagePath>
+            <div class="grid justify-center">
+              <ng-container *ngIf="imagePath !== ''; else emptyThumbnail">
+                <img class="thumbnail" *ngIf="imagePath !== ''" [src]="imagePath" style="display: block;" />
+              </ng-container>
+              <ng-template #emptyThumbnail>
+                <div class="empty-galleria-thumbnail">
+                  <i class="pi pi-image"></i>
+                </div>
+              </ng-template>
+            </div>
+          </ng-template>
+
+        </p-galleria>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="buttons">
+    <button pButton pRipple class="cameraBtn" id="cameraBtn" (click)=" disableCamera()">
+      <span class="material-symbols-outlined">
+        {{videoIcon}}
+      </span>
+    </button>
+
+    <button pButton pRipple class="micBtn" id="micBtn" (click)=" disableMic()">
+      <span class="material-symbols-outlined">
+        {{micIcon}}
+      </span>
+    </button>
+
+    <button pButton pRipple class="joinBtn" id="joinBtn" (click)="onShootClick()">
+      <span class="material-symbols-outlined">
+        photo_camera
+      </span>
+    </button>
+
+  </div>
+
+  <div class="bottom">
+    <div class="hangupBtn">
+
+      <!-- 接收端用 -->
+      <!-- <button class="joinBtn" id="joinBtn" [disabled]="show.isJoinDisabled" (click)="joinRoom()">
+        <i class="pi pi-user-plus" aria-hidden="true"></i>
+      </button> -->
+
+
+      <button pButton pRipple id="hangupBtn" class="p-button-raised p-button-warning" label="結束通話"
+        [disabled]="show.isHangupDisabled" (click)="hangUp()">
+      </button>
+
+    </div>
+
+    <!-- 接收端用 -->
+    <!-- <p-dialog header="Join room" [(visible)]="show.isDialog" [modal]="true" [responsive]="true">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="room-id">Room ID</label>
+          <input id="room-id" type="text" pInputText [(ngModel)]="inputRoomId">
+        </div>
+      </div>
+      <div class="p-dialog-footer">
+        <pbutton type="button" pButton [label]="'取消' | translate" (click)="hideDialog()"></pbutton>
+        <pbutton type="button" pButton [label]="'加入' | translate" (click)="confirmJoinRoom()" class="p-button-primary">
+        </pbutton>
+      </div>
+    </p-dialog> -->
+
+  </div>
+</div>

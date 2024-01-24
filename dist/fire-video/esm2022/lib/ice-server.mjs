@@ -1,0 +1,24 @@
+/** iceServers的配置
+   * 是一個用於設定 WebRTC ICE server 的陣列。這個陣列包括 STUN 和 TURN 伺服器的資訊，這邊只使用 google 提供免費的 STUN server 。
+   *
+   * WebRTC 使用 STUN 和 TURN 協議來克服 NAT 和防火牆的障礙，確保兩個瀏覽器之間的實時通信順利進行。
+   * STUN（Session Traversal Utilities for NAT）用於獲取公共IP地址和端口。
+   * STUN伺服器的工作是從訊息中找出這個裝置的外部位置，然後把這個資訊送回給該裝置，告訴裝置如何穿越 NAT以確定裝置的可用 IP 地址
+   * TURN（Traversal Using Relays around NAT）提供中繼服務，允許通信，即使在複雜的NAT環境中也能運作。
+   * WebRTC使用STUN和TURN協議來確保實時通信的成功。
+   * 當瀏覽器無法直接建立對等連接時，它們將使用 STUN 來獲取公共 IP 地址，並嘗試直接通信。
+   * 如果 STUN 無法成功且有設定 TURN server的情況下，則會使用 TURN 服務器作為中繼，將數據傳遞給對方。
+   */
+export const iceSeverConfig = {
+    iceServers: [
+        {
+            urls: [
+                'stun:stun1.l.google.com:19302',
+                'stun:stun2.l.google.com:19302',
+            ],
+        },
+    ],
+    // ICE 協商過程中生成的 ICE 候選人的數量。根據應用程序的需求和性能考慮來配置。較大可能會增加成功建立連接的機會，但也會增加網絡流量和運算成本。
+    iceCandidatePoolSize: 10,
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaWNlLXNlcnZlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL2ZpcmUtdmlkZW8vc3JjL2xpYi9pY2Utc2VydmVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7O0tBVUs7QUFDTCxNQUFNLENBQUMsTUFBTSxjQUFjLEdBQUc7SUFDNUIsVUFBVSxFQUFFO1FBQ1Y7WUFDRSxJQUFJLEVBQUU7Z0JBQ0osK0JBQStCO2dCQUMvQiwrQkFBK0I7YUFDaEM7U0FDRjtLQUNGO0lBQ0QsNkVBQTZFO0lBQzdFLG9CQUFvQixFQUFFLEVBQUU7Q0FDekIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKiBpY2VTZXJ2ZXJz55qE6YWN572uXG4gICAqIOaYr+S4gOWAi+eUqOaWvOioreWumiBXZWJSVEMgSUNFIHNlcnZlciDnmoTpmaPliJfjgILpgJnlgIvpmaPliJfljIXmi6wgU1RVTiDlkowgVFVSTiDkvLrmnI3lmajnmoTos4foqIrvvIzpgJnpgorlj6rkvb/nlKggZ29vZ2xlIOaPkOS+m+WFjeiyu+eahCBTVFVOIHNlcnZlciDjgIJcbiAgICpcbiAgICogV2ViUlRDIOS9v+eUqCBTVFVOIOWSjCBUVVJOIOWNlOitsOS+huWFi+acjSBOQVQg5ZKM6Ziy54Gr54mG55qE6Zqc56SZ77yM56K65L+d5YWp5YCL54CP6Ka95Zmo5LmL6ZaT55qE5a+m5pmC6YCa5L+h6aCG5Yip6YCy6KGM44CCXG4gICAqIFNUVU7vvIhTZXNzaW9uIFRyYXZlcnNhbCBVdGlsaXRpZXMgZm9yIE5BVO+8ieeUqOaWvOeNsuWPluWFrOWFsUlQ5Zyw5Z2A5ZKM56uv5Y+j44CCXG4gICAqIFNUVU7kvLrmnI3lmajnmoTlt6XkvZzmmK/lvp7oqIrmga/kuK3mib7lh7rpgJnlgIvoo53nva7nmoTlpJbpg6jkvY3nva7vvIznhLblvozmiorpgJnlgIvos4foqIrpgIHlm57ntaboqbLoo53nva7vvIzlkYroqLToo53nva7lpoLkvZXnqb/otoogTkFU5Lul56K65a6a6KOd572u55qE5Y+v55SoIElQIOWcsOWdgFxuICAgKiBUVVJO77yIVHJhdmVyc2FsIFVzaW5nIFJlbGF5cyBhcm91bmQgTkFU77yJ5o+Q5L6b5Lit57m85pyN5YuZ77yM5YWB6Kix6YCa5L+h77yM5Y2z5L2/5Zyo6KSH6Zuc55qETkFU55Kw5aKD5Lit5Lmf6IO96YGL5L2c44CCXG4gICAqIFdlYlJUQ+S9v+eUqFNUVU7lkoxUVVJO5Y2U6K2w5L6G56K65L+d5a+m5pmC6YCa5L+h55qE5oiQ5Yqf44CCXG4gICAqIOeVtueAj+imveWZqOeEoeazleebtOaOpeW7uueri+WwjeetiemAo+aOpeaZgu+8jOWug+WAkeWwh+S9v+eUqCBTVFVOIOS+hueNsuWPluWFrOWFsSBJUCDlnLDlnYDvvIzkuKblmJfoqabnm7TmjqXpgJrkv6HjgIJcbiAgICog5aaC5p6cIFNUVU4g54Sh5rOV5oiQ5Yqf5LiU5pyJ6Kit5a6aIFRVUk4gc2VydmVy55qE5oOF5rOB5LiL77yM5YmH5pyD5L2/55SoIFRVUk4g5pyN5YuZ5Zmo5L2c54K65Lit57m877yM5bCH5pW45pOa5YKz6YGe57Wm5bCN5pa544CCXG4gICAqL1xuZXhwb3J0IGNvbnN0IGljZVNldmVyQ29uZmlnID0ge1xuICBpY2VTZXJ2ZXJzOiBbXG4gICAge1xuICAgICAgdXJsczogW1xuICAgICAgICAnc3R1bjpzdHVuMS5sLmdvb2dsZS5jb206MTkzMDInLFxuICAgICAgICAnc3R1bjpzdHVuMi5sLmdvb2dsZS5jb206MTkzMDInLFxuICAgICAgXSxcbiAgICB9LFxuICBdLFxuICAvLyBJQ0Ug5Y2U5ZWG6YGO56iL5Lit55Sf5oiQ55qEIElDRSDlgJnpgbjkurrnmoTmlbjph4/jgILmoLnmk5rmh4nnlKjnqIvluo/nmoTpnIDmsYLlkozmgKfog73ogIPmha7kvobphY3nva7jgILovIPlpKflj6/og73mnIPlop7liqDmiJDlip/lu7rnq4vpgKPmjqXnmoTmqZ/mnIPvvIzkvYbkuZ/mnIPlop7liqDntrLntaHmtYHph4/lkozpgYvnrpfmiJDmnKzjgIJcbiAgaWNlQ2FuZGlkYXRlUG9vbFNpemU6IDEwLFxufTtcbiJdfQ==
