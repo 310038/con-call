@@ -8,11 +8,12 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
     "compodoc:build": "compodoc -p tsconfig.doc.json",
     "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
     "compodoc:serve": "compodoc -s",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "test": "jest",
+"test:watch": "jest --watch"
   },
   "files": [
     "dist"
@@ -54,11 +55,14 @@
     "@angular/compiler-cli": "^17.1.0",
     "@compodoc/compodoc": "^1.1.23",
     "@types/jasmine": "~5.1.0",
+    "@types/jest": "^29.5.11",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "jasmine-core": "~5.1.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.0.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
@@ -66,5 +70,13 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.1.0",
     "typescript": "~5.3.2"
+  },
+  "jest": {
+    "preset": "jest-preset-angular",
+    "setupFilesAfterEnv": ["<rootDir>/setup-jest.ts"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/dist/"
+    ]
   }
 }
