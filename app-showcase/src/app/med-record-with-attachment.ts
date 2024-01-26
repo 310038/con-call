@@ -122,8 +122,8 @@ export class MedRecordwithAttachment extends IndexObject {
    */
   attachment!: Attachment[];
   /** 診間報到時間/到護理站時間/檢傷分類時間
- * @default new Date('2999-12-31 23:59');
- */
+   * @default new Date('2999-12-31 23:59');
+   */
   checkInTime!: Date;
   /** 離開診間時間/離開護理站時間/離開急診時間
    * @default new Date('2999-12-31 23:59');
@@ -235,5 +235,3 @@ export class MedRecordwithAttachment extends IndexObject {
    */
   // constructor(that?: Partial<MedRecordwithAttachment>);
 }
-
-
