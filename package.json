@@ -1,6 +1,6 @@
 {
   "name": "@his-directive/fire-video",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/fire-video/fesm2022/his-directive-fire-video.mjs",
   "types": "dist/fire-video/index.d.ts",
   "scripts": {
