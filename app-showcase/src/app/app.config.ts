@@ -9,7 +9,7 @@ import { JetStreamWsService } from '@his-base/jetstream-ws';
 import '@angular/compiler';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from '../environments/environment.development';
+import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 
 export function createTranslateLoader(http: HttpClient) {
