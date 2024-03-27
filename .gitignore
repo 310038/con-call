@@ -44,3 +44,6 @@ Thumbs.db
 # firebase env
 app-showcase/src/environments/environment.ts
 app-showcase/src/environments/environment.prod.ts
+
+
+app-showcase/src/app/med-record-with-attachment.ts
